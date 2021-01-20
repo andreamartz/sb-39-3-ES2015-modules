@@ -10,8 +10,12 @@ const choice = (items) => {
 };
 
 const remove = (items, item) => {
-  const idx = items.findIndex(item);
-  items.splice(idx, 1);
+  const idx = items.findIndex(i => i === item);
+  if (idx === -1) {
+    return undefined;
+  } else {
+    return items.splice(idx, 1);
+  }
 };
 
 export { choice, remove };
